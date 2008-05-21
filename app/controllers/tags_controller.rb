@@ -1,10 +1,10 @@
 class TagsController < ApplicationController
+  def index
+    @tags = Snippet.tag_counts
+  end
+  
   def show
-    if params[:id] =~ /^\d+$/
-      @tag = Tag.find params[:id]
-    else
-      @tag = Tag.find_by_name params[:id]
-    end
-    @snippets = @tag.snippets.find(:all)
+    @tag = params[:id].downcase
+    @snippets = Snippet.find_tagged_with(@tag)
   end
 end

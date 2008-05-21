@@ -1,0 +1,13 @@
+<h1>Tags</h1>
+
+<% tag_cloud @tags, %w(size1 size2 size3 size4) do |tag, css_class| %>
+  <%= link_to tag.name, tag_path(tag.name), :class => 'tag ' + css_class %>
+<% end %>
+
+<style type="text/css">
+  .tag { text-decoration: none; }
+  .size1 { font-size: 0.7em; }
+  .size2 { font-size: 1.2em; }
+  .size3 { font-size: 1.8em; }
+  .size4 { font-size: 2.5em; }
+</style>

@@ -1,8 +1,5 @@
-<table>
-  <% @snippets.each do |snippet| %>
-    <tr>
-      <td><%= link_to h(snippet.name), snippet %></td>
-      <td><%=h snippet.tags_string %></td>
-    </tr>
-  <% end %>
-</table>
+<% @snippets.each do |snippet| %>
+  <p>
+    <%= link_to h(snippet.name), snippet %>
+    <span class="tag-list"><%= link_tags snippet %></span>
+<% end %>

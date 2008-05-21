@@ -1,6 +1,7 @@
 module SnippetsHelper
-  def tagify(tags)
-    tags = tags.split if tags.is_a? String
-    tags.map { |tag| link_to(tag, tag_path(:id => tag)) }.join(', ')
+  def link_tags(snippet)
+    snippet.tag_list.map do |tag|
+      link_to h(tag), tag_path(:id => tag)
+    end.join(' ')
   end
 end

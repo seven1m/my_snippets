@@ -2,4 +2,6 @@
 
 <pre><code><%=h @snippet.body %></code></pre>
 
-<%= tagify @snippet.tags_string %>
+<%= link_tags @snippet %>
+
+<p><%= link_to 'Edit Snippet', edit_snippet_path(@snippet) %></p>

@@ -1,10 +1,9 @@
 class CreateSnippets < ActiveRecord::Migration
   def self.up
     create_table :snippets do |t|
-      t.string :name
+      t.string :name, :limit => 255
       t.text :body
-      t.string :tags_string
-
+      t.string :cached_tag_list, :limit => 500
       t.timestamps
     end
   end
