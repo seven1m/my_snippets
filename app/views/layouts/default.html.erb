@@ -42,6 +42,9 @@
 
 <body>
   <div id="main-heading">
+    <% if session[:url] %>
+      <div style="float:left"><%=h session[:url] %></div>
+    <% end %>
     <h1>My Snippets</h1>
     <%= link_to 'Snippets', snippets_path %> |
     <%= link_to 'Tags', tags_path %>
