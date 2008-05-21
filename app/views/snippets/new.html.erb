@@ -1,3 +1,5 @@
+<%= error_messages_for :snippet %>
+
 <% form_for :snippet, @snippet, :url => snippets_path, :html => {:method => :post} do |form| %>
   <%= render :partial => 'form', :locals => {:form => form} %>
 <% end %>

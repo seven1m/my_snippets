@@ -1,7 +1,9 @@
 <h1><%=h @snippet.name %></h1>
 
-<pre><code><%=h @snippet.body %></code></pre>
+<%= textilize @snippet.description %>
 
-<%= link_tags @snippet %>
+<%= format_code @snippet.code %>
+
+<%= link_tags @snippet.tag_list %>
 
 <p><%= link_to 'Edit Snippet', edit_snippet_path(@snippet) %></p>

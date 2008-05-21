@@ -1,5 +1,5 @@
 <% @snippets.each do |snippet| %>
   <p>
     <%= link_to h(snippet.name), snippet %>
-    <span class="tag-list"><%= link_tags snippet %></span>
+    <span class="tag-list"><%= link_tags snippet.tag_list %></span>
 <% end %>

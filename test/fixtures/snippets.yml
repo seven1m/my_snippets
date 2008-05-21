@@ -2,7 +2,11 @@
 
 trac_wiki_to_github:
   name: Trac Wiki to GitHub
-  body: |
+  description: |
+    Does the majority of the work of converting individual Trac wiki pages into syntax suitable for pasting into a GitHub wiki.
+    
+    Some work is still necessary, but it's a whole lot easier than doing it all by hand.
+  code: |
     #!/usr/bin/env ruby
      
     TRAC_DB_PATH = 'trac.db'
@@ -36,4 +40,5 @@ trac_wiki_to_github:
 
 copy_public_key:
   name: Copy Public Key To Host In One Line
-  body: ssh username@host "echo `cat ~/.ssh/id_dsa.pub` >> ~/.ssh/authorized_keys"
+  description: A quick one-liner for copying your SSH public key to a remote host.
+  code: ssh username@host "echo `cat ~/.ssh/id_dsa.pub` >> ~/.ssh/authorized_keys"
