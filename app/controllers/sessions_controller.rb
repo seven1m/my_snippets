@@ -1,13 +1,13 @@
 require 'openid/store/filesystem'
 
 class SessionsController < ApplicationController
+  # login page
   def new
-    # login page
   end
-  
+
+  # login form submission
   def create
-    # login form submission
-    store = OpenID::Store::Filesystem.new(RAILS_ROOT + '/tmp/openid')
+    store = OpenID::Store::Filesystem.new(RAILS_ROOT + '/tmp')
     consumer = OpenID::Consumer.new(session, store)
     oid_req = consumer.begin params[:url]
     realm = request.protocol + request.host_with_port
@@ -16,13 +16,18 @@ class SessionsController < ApplicationController
   end
   
   def show
-    # fake it
-    update
+    if params['openid.mode']
+      # the openid provider sends the browser back here
+      # we'd rather use the update method because it's more RESTful
+      update
+    else
+      redirect_to new_session_path
+    end
   end
   
+  # back from openid provider
   def update
-    # back from openid provider
-    store = OpenID::Store::Filesystem.new(RAILS_ROOT + '/tmp/openid')
+    store = OpenID::Store::Filesystem.new(RAILS_ROOT + '/tmp')
     consumer = OpenID::Consumer.new(session, store)
     url = request.protocol + request.host_with_port + request.relative_url_root + request.path
     response = consumer.complete(params.reject { |k, v| k !~ /^openid\./ }, url)
@@ -33,5 +38,11 @@ class SessionsController < ApplicationController
       flash[:notice] = 'Failure signing in with OpenID.'
       redirect_to new_session_path
     end
+  end
+
+  # sign out
+  def destroy
+    session[:url] = nil
+    redirect_to new_session_path
   end
 end

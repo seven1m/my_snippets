@@ -43,7 +43,7 @@
 <body>
   <div id="main-heading">
     <% if session[:url] %>
-      <div style="float:left"><%=h session[:url] %></div>
+      <div style="float:left"><%=h session[:url] %> (<%= link_to 'sign out', session_path, :method => :delete %>)</div>
     <% end %>
     <h1>My Snippets</h1>
     <%= link_to 'Snippets', snippets_path %> |
