@@ -3,7 +3,6 @@ RAILS_GEM_VERSION = '2.0.991' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
-  config.gem "RedCloth"
   config.time_zone = 'UTC'
   config.action_controller.session = {
     :session_key => '_my_snippets_session',
