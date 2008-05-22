@@ -1,0 +1,10 @@
+h1. My Snippets
+
+I was fed up with dzone snippets and decided to write my own.
+
+h2. Features
+
+* OpenID logins
+* Tags
+
+That's about it for now. More to come (maybe).
