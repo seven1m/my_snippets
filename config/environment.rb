@@ -3,7 +3,7 @@ RAILS_GEM_VERSION = '2.0.991' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
-  config.gem 'ruby-openid', :lib => 'openid/consumer'
+  config.gem 'ruby-openid', :version => '>= 2.0', :lib => 'openid/consumer'
   config.time_zone = 'UTC'
   config.action_controller.session = {
     :session_key => '_my_snippets_session',
