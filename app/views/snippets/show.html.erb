@@ -1,9 +1,15 @@
 <h1><%=h @snippet.name %></h1>
+<p class="under-heading">by <%= link_to @snippet.owner_url, snippets_by_owner_path(@snippet.owner_url) %></p>
 
 <%= textilize @snippet.description %>
 
 <%= format_code @snippet.code %>
 
-<%= link_tags @snippet.tag_list %>
+<p>Tags: <%= link_tags @snippet.tag_list %></p>
 
-<p><%= link_to 'Edit Snippet', edit_snippet_path(@snippet) %></p>
+<% if can_edit? @snippet %>
+  <p>
+    <%= link_to 'Edit Snippet', edit_snippet_path(@snippet) %> |
+    <%= link_to 'Delete Snippet', snippet_path(@snippet), :method => :delete, :confirm => 'Are you sure? THERE IS NO GOING BACK!' %>
+  </p>
+<% end %>

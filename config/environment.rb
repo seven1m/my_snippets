@@ -12,3 +12,5 @@ Rails::Initializer.run do |config|
 end
 
 TagList.delimiter = ' '
+
+ADMINS = %w(http://timmorgan.org/)

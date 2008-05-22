@@ -1,5 +1,24 @@
-  <p><%= form.label :name %> <%= form.text_field :name %></p>
-  <p><%= form.label :description %><br/><%= form.text_area :description, :rows => 6, :cols => 80, :style => 'width:100%' %></p>
-  <p><%= form.label :code %><br/><%= form.text_area :code, :rows => 30, :cols => 80, :style => 'width:100%' %></p>
-  <p><%= form.label :cached_tag_list, 'Tags' %>: <%= form.text_field :cached_tag_list %></p>
-  <p><%= submit_tag 'Save Snippet' %></p>
+<p>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+</p>
+
+<p>
+  <%= form.label :description %>
+  (<%= link_to 'Textile', 'http://hobix.com/textile/', :target => '_new' %>)
+  <br/><%= form.text_area :description, :rows => 6, :cols => 80, :style => 'width:100%' %>
+</p>
+
+<p>
+  <%= form.label :code %><br/>
+  <%= form.text_area :code, :rows => 30, :cols => 80, :style => 'width:100%' %>
+</p>
+
+<p>
+  <%= form.label :cached_tag_list, 'Tags' %>
+  <%= form.text_field :cached_tag_list %>
+</p>
+
+<p>
+  <%= submit_tag 'Save Snippet' %>
+</p>

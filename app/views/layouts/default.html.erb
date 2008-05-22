@@ -37,19 +37,43 @@
     div.fieldWithErrors input {
       background-color: #fcc;
     }
+    .under-heading {
+      margin-top: -20px;
+    }
+    pre {
+      border: 1px solid #ccc;
+      background-color: #eee;
+      padding: 10px;
+    }
+    .footer {
+      border-top: 1px dotted #999;
+      padding-top: 10px;
+    }
+    .flash {
+      font-weight: bold;
+      color: #f00;
+    }
   </style>
 </head>
 
 <body>
   <div id="main-heading">
-    <% if session[:url] %>
-      <div style="float:left"><%=h session[:url] %> (<%= link_to 'sign out', session_path, :method => :delete %>)</div>
-    <% end %>
+    <div style="float:left">
+      <% if session[:url] %>
+        <%= link_to h(session[:url]), snippets_by_owner_path(session[:url]) %>
+        (<%= link_to 'sign out', session_path, :method => :delete %>)
+      <% else %>
+        <%= link_to 'sign in', new_session_path %>
+      <% end %>
+    </div>
     <h1>My Snippets</h1>
-    <%= link_to 'Snippets', snippets_path %> |
-    <%= link_to 'Tags', tags_path %>
+    <%= link_to 'All Snippets', snippets_path %> |
+    <%= link_to 'All Tags', tags_path %>
   </div>
   <div id="main">
+    <% flash.each do |key, value| %>
+      <p class="flash"><%= value %></p>
+    <% end %>
     <%= yield %>
   </div>
 </body>

@@ -1,3 +1,11 @@
+<% if @by %>
+  <h1>Snippets by <%= link_to h(@by), @by %></h1>
+<% else %>
+  <h1>All Snippets</h1>
+<% end %>
+
 <%= render :partial => 'snippets' %>
 
-<p><%= link_to 'New Snippet', new_snippet_path %></p>
+<% if signed_in? %>
+  <p class="footer"><%= link_to 'New Snippet', new_snippet_path %></p>
+<% end %>

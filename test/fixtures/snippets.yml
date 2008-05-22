@@ -37,8 +37,10 @@ trac_wiki_to_github:
         file.write(body)
       end
     end
+  owner_url: http://somebody.myopenid.com
 
 copy_public_key:
   name: Copy Public Key To Host In One Line
   description: A quick one-liner for copying your SSH public key to a remote host.
   code: ssh username@host "echo `cat ~/.ssh/id_dsa.pub` >> ~/.ssh/authorized_keys"
+  owner_url: http://somebody.myopenid.com
