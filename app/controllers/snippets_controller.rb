@@ -4,10 +4,20 @@ class SnippetsController < ApplicationController
     conditions = {}
     @by = conditions[:owner_url] = params[:owner_url] if params[:owner_url]
     @snippets = Snippet.find(:all, :order => order, :conditions => conditions)
+    respond_to do |format|
+      format.js { render :json => @snippets }
+      format.xml { render :xml => @snippets }
+      format.html
+    end
   end
   
   def show
     @snippet = Snippet.find params[:id]
+    respond_to do |format|
+      format.js { render :json => @snippet }
+      format.xml { render :xml => @snippet }
+      format.html
+    end
   end
   
   verify :only => %w(new edit create update destroy), :session => :url,
