@@ -1,0 +1,3 @@
+<% form_for :comment, @comment, :url => snippet_comments_path(@snippet), :method => 'post' do |form| %>
+  <%= render :partial => 'form', :locals => {:form => form} %>
+<% end %>

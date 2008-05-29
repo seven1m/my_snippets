@@ -13,3 +13,10 @@
     <%= link_to 'Delete Snippet', snippet_path(@snippet), :method => :delete, :confirm => 'Are you sure? THERE IS NO GOING BACK!' %>
   </p>
 <% end %>
+
+<%= render :partial => 'comments/comment', :collection => @comments %>
+
+<% if signed_in? %>
+  <p><%= link_to_remote 'Add Comment &raquo;', :update => 'new_comment', :url => new_snippet_comment_path(@snippet), :method => :get %></p>
+  <div id="new_comment"></div>
+<% end %>

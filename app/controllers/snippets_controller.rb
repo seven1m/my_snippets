@@ -13,6 +13,7 @@ class SnippetsController < ApplicationController
   
   def show
     @snippet = Snippet.find params[:id]
+    @comments = @snippet.comments.find(:all, :limit => 50)
     respond_to do |format|
       format.js { render :json => @snippet }
       format.xml { render :xml => @snippet }

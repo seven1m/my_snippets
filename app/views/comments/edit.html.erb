@@ -1,0 +1,3 @@
+<% remote_form_for :comment, @comment, :url => snippet_comment_path(@snippet, @comment), :method => 'put' do |form| %>
+  <%= render :partial => 'form', :locals => {:form => form} %>
+<% end %>

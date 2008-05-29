@@ -10,7 +10,7 @@ module ApplicationHelper
     signed_in? and ADMINS.include? session[:url]
   end
   
-  def can_edit?(snippet)
-    signed_in? and (is_admin? or snippet.owner_url == session[:url])
+  def can_edit?(object)
+    signed_in? and (is_admin? or object.owner_url == session[:url])
   end
 end

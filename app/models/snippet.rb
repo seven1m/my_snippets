@@ -2,6 +2,8 @@ require 'rss'
 require 'open-uri'
 
 class Snippet < ActiveRecord::Base
+  has_many :comments
+  
   validates_presence_of :name, :code
   acts_as_taggable
   

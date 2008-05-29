@@ -1,0 +1,9 @@
+<p>
+  <%= link_to(h(comment.owner_url), comment.owner_url) rescue '?' %>
+  <%= comment.created_at.strftime '%Y-%m-%d %H%p' %>
+  <% if can_edit? comment %>
+    <%= link_to '[delete]', comment_path(comment), :method => 'delete', :confirm => 'Are you sure?' %>
+  <% end %>
+  <br/>
+  <%=h comment.body %>
+</p>
